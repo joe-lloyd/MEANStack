@@ -20,15 +20,17 @@ module.exports = function(passport){
             passReqToCallback : true
         },
         function(req, username, password, done) { 
-
-            if (!user[username]) {
+            // check a user exists
+            if (!users[username]) {
                 return done('user not found', false);
             }
+            //validity of passaword
             if (isValidPassword(users[username], password)) {
                 return done('invalid password', false);
             }
+            // if neither of the above fail log the user
             console.log('login successful');
-            return done(null, user[username]);
+            return done(null, users[username]);
         }
     ));
 
