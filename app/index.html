@@ -10,15 +10,15 @@
 <body ng-app="myApp">
 	<div id='main' ng-controller="mainController">
 		<div class="col-md-offset-2 col-md-8">
-			<h1>Twatter</h1>
+			<h1>Post your opinion because everyone really wants to hear it</h1>
 			<div class="clearfix">
 				<form ng-submit="post()">
 					<input required type="text" class="form-control" placeholder='Your Name' ng-model="newPost.created_by"/>
-					<textarea required class="form-control" maxLength="200" rows='3' placeholder="Twat Something" ng-model="newPost.text"></textarea>
-					<input class="btn submit-btn pull-right" type="submit" value="Twat!"/>
+					<textarea required class="form-control" maxLength="200" rows='3' placeholder="Say Something" ng-model="newPost.text"></textarea>
+					<input class="btn submit-btn pull-right" type="submit" value="Say It!"/>
 				</form>
 				<div id="post-stream">
-					<h4>Twats feed</h4>
+					<h4>Your Feed</h4>
 					<div class="post" ng-repeat="post in posts | orderBy:'created_at':true" ng-class-odd="'odd'" ng-class-even="'even'">
 						<p>{{post.text}}</p>
 						<small>Posted by @{{post.created_by}}</small>
